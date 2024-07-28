@@ -1,14 +1,11 @@
 package com.devteam.bookmarker_api.controller;
 
-import java.util.List;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.devteam.bookmarker_api.dto.BookmarksDTO;
-import com.devteam.bookmarker_api.entity.Bookmark;
 import com.devteam.bookmarker_api.service.BookmarkService;
 
 import lombok.RequiredArgsConstructor;

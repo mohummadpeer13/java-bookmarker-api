@@ -14,8 +14,6 @@ import lombok.RequiredArgsConstructor;
 @Component
 @RequiredArgsConstructor
 public class DataInitializer implements CommandLineRunner{
-    private final BookmarkRepository bookmarkRepository;
-
     @Override
     public void run(String... args) throws Exception {
         // this.bookmarkRepository.save(new Bookmark(null,"rre01","rrr",Instant.now(),""));

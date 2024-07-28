@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.devteam.bookmarker_api.dto.BookmarksDTO;
 import com.devteam.bookmarker_api.entity.Bookmark;
 import com.devteam.bookmarker_api.repository.BookmarkRepository;
 
@@ -21,10 +22,10 @@ public class BookmarkService {
     private final BookmarkRepository bookmarkRepository;
 
     @Transactional(readOnly = true)
-    public List<Bookmark> findAllBookmarks(Integer page) {
+    public BookmarksDTO findAllBookmarks(Integer page) {
         int pageNo = page < 1 ? 0 : page -1;
-        Pageable pageable = PageRequest.of(pageNo,10,Sort.Direction.DESC, "createdAt");
-        return this.bookmarkRepository.findAll(pageable).getContent();
+        Pageable pageable = PageRequest.of(pageNo,10,Sort.Direction.ASC, "title");
+        return new BookmarksDTO(this.bookmarkRepository.findAll(pageable));
     }
 
 }

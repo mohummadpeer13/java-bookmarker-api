@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.devteam.bookmarker_api.dto.BookmarksDTO;
 import com.devteam.bookmarker_api.entity.Bookmark;
 import com.devteam.bookmarker_api.service.BookmarkService;
 
@@ -20,7 +21,7 @@ public class BookmarkController {
     private final BookmarkService bookmarkService;
 
     @GetMapping
-    public List<Bookmark> getBookmarks(@RequestParam(name = "page", defaultValue = "1") Integer page) {
+    public BookmarksDTO getBookmarks(@RequestParam(name = "page", defaultValue = "1") Integer page) {
         return this.bookmarkService.findAllBookmarks(page);
     }
 

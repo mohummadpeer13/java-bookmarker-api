@@ -18,32 +18,32 @@ public class DataInitializer implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        this.bookmarkRepository.save(new Bookmark(null,"rre","rrr",Instant.now()));
-        List<Bookmark> book = bookmarkRepository.findAll(); 
-        System.out.println(book.size());
+        // this.bookmarkRepository.save(new Bookmark(null,"rre01","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre02","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre03","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre04","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre05","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre06","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre07","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre08","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre09","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre10","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre11","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre12","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre13","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre14","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre15","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre16","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre17","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre18","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre19","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre20","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre21","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre22","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre23","rrr",Instant.now(),""));
+        // this.bookmarkRepository.save(new Bookmark(null,"rre24","rrr",Instant.now(),""));
+        // List<Bookmark> book = bookmarkRepository.findAll(); 
+        // System.out.println(book.size());
 
     }
 

@@ -21,11 +21,13 @@ public class Bookmark {
     private Long id;
 
     @Column(nullable = false)
-    private String Title;
+    private String title;
 
     @Column(nullable=false)
     private String url;
 
     private Instant createdAt;
+
+    private String description;
 
 }

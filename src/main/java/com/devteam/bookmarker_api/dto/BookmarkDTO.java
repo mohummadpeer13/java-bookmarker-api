@@ -12,9 +12,7 @@ import lombok.Setter;
 public class BookmarkDTO {
 
     private String title;
-
     private String url;
-
     private String description;
 
 }

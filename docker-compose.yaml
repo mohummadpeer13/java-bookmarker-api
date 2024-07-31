@@ -1,0 +1,118 @@
+version: '3.9'
+
+services:
+  postgres_db:
+    image: postgres:16-alpine
+    container_name: postgres_db
+    env_file:
+      - ./postgres.env
+    volumes:
+       - postgresDB:/var/lib/postgresql/data
+    ports:
+      - "15432:5432"
+
+  bookmarker-api:
+    build:
+      context: ./
+      dockerfile: Dockerfile.layered
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_db:5432/appdb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    ports:
+      - "18080:8080"
+    restart: always
+    depends_on:
+      - postgres_db
+  
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    env_file:
+      - ./postgres.env
+    volumes:
+       - pgadmin:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+
+volumes:
+    postgresDB:
+    pgadmin:
+    
+##### docker-compose -f docker-compose-postgresql.yaml up -d
+
+##### CONNECT POSTGRES COMMANDLINE #####
+##### psql -U postgres -p 123456
+
+###############################################################################################
+
+##### DISPLAY INFO CURRENT CONNECTION #####
+##### \conninfo
+
+###############################################################################################
+
+##### SHOW USERS #####
+##### \du
+
+###############################################################################################
+
+##### SHOW DATABASES #####
+##### \l or \l+
+
+###############################################################################################
+
+##### CONNECT TO A DATABASE #####
+##### \c testdb;
+
+###############################################################################################
+
+##### CREATE DATABASE #####
+##### CREATE DATABASE testdb;
+
+###############################################################################################
+
+##### DELETE DATABASE #####
+##### DROP DATABASE testdb;
+
+###############################################################################################
+
+##### SHOW TABLES #####
+##### \dt or \dt+
+
+###############################################################################################
+
+##### CREATE TABLE #####
+#  CREATE TABLE USERS (
+#       USER_ID BIGSERIAL PRIMARY KEY NOT NULL,
+#       USER_FIRSTNAME VARCHAR ( 32 ),
+#       USER_LASTNAME VARCHAR ( 32 )
+#   );
+
+###############################################################################################
+
+##### INSERT DATA #####
+#  INSERT INTO
+
+#       USERS (USER_FIRSTNAME, USER_LASTNAME)
+#   VALUES
+#       ('Jean','Pierre');
+
+###############################################################################################
+
+##### EXECUTE QUERY #####
+##### select * from users;
+
+###############################################################################################
+
+##### QUIT #####
+##### \q
+
+###############################################################################################
+
+##### CREATE POSTGRES CONNEXION IN PGADMIN4 #####
+
+##### docker ps -a
+##### docker inspect CONTAINER ID POSTGRES
+##### pgadmin4 => create server with hostname : localhost or ip address of postgres container

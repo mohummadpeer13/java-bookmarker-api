@@ -11,14 +11,14 @@ import com.devteam.bookmarker_api.entity.Bookmark;
 public interface BookmarkRepository extends JpaRepository<Bookmark, Long> {
 
     // if you have 30 fields => select only field you want in the table and mapper it to DTO
-    @Query("select new com.devteam.bookmarker_api.dto.BookmarkDTO(b.title,b.url,b.description) from Bookmark b")
+    @Query("select new com.devteam.bookmarker_api.dto.BookmarkDTO(b.id,b.title,b.url,b.createdAt,b.description) from Bookmark b")
     Page<BookmarkDTO> findBookmarks(Pageable pageable);
 
     // 3 method search => 
 
     // 1) query sql
     @Query("""
-        select new com.devteam.bookmarker_api.dto.BookmarkDTO(b.title,b.url,b.description) from Bookmark b
+        select new com.devteam.bookmarker_api.dto.BookmarkDTO(b.id,b.title,b.url,b.createdAt,b.description) from Bookmark b
         where lower(b.title) like lower(concat('%',:query,'%'))
         """)
     Page<BookmarkDTO> searchBookmarks(String query, Pageable pageable);

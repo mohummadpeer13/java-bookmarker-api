@@ -1,14 +1,20 @@
 package com.devteam.bookmarker_api.service;
 
 import org.springframework.data.domain.Pageable;
+
+import java.time.Instant;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.devteam.bookmarker_api.dto.AddBookmarkDTO;
 import com.devteam.bookmarker_api.dto.BookmarkDTO;
+import com.devteam.bookmarker_api.dto.BookmarkMapper;
 import com.devteam.bookmarker_api.dto.BookmarksDTO;
+import com.devteam.bookmarker_api.entity.Bookmark;
 import com.devteam.bookmarker_api.repository.BookmarkRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -19,6 +25,7 @@ import lombok.RequiredArgsConstructor;
 public class BookmarkService {
 
     private final BookmarkRepository bookmarkRepository;
+    private final BookmarkMapper bookmarkMapper;
 
     @Transactional(readOnly = true)
     public BookmarksDTO findAllBookmarks(Integer page) {
@@ -44,6 +51,17 @@ public class BookmarkService {
         
         Page<BookmarkDTO> bookmarkPage = this.bookmarkRepository.findByTitleContainsIgnoreCase(query, pageable);
         return new BookmarksDTO(bookmarkPage);
+    }
+
+    public BookmarkDTO addBookmark(AddBookmarkDTO addBookmark) {
+        Bookmark bookmark = new Bookmark();
+        bookmark.setTitle(addBookmark.getTitle());
+        bookmark.setUrl(addBookmark.getUrl());
+        bookmark.setDescription(addBookmark.getDescription());
+        bookmark.setCreatedAt(Instant.now());
+        
+        Bookmark savedBookmark = this.bookmarkRepository.save(bookmark);
+        return bookmarkMapper.toDTO(savedBookmark);
     }
 
 }

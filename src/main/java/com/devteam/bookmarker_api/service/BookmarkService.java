@@ -39,7 +39,10 @@ public class BookmarkService {
         int pageNo = page < 1 ? 0 : page - 1;
         Pageable pageable = PageRequest.of(pageNo, 10, Sort.Direction.ASC, "title");
         
-        Page<BookmarkDTO> bookmarkPage = this.bookmarkRepository.searchBookmarks(query,pageable);
+        // on peut soit utiliser une requete sql personnalisé ou soit une requete jpql
+        //Page<BookmarkDTO> bookmarkPage = this.bookmarkRepository.searchBookmarks(query,pageable);
+        
+        Page<BookmarkDTO> bookmarkPage = this.bookmarkRepository.findByTitleContainsIgnoreCase(query, pageable);
         return new BookmarksDTO(bookmarkPage);
     }
 
